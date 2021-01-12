@@ -39,6 +39,7 @@ app.get('/health', (req, res) => res.json({ success: true }));
 
 const allowedCorsOrigins = [
   /p5js\.org$/,
+  /releaseapp\.gethandsup\.com$/
 ];
 
 // to allow client-only development

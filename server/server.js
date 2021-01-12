@@ -3,6 +3,7 @@ import mongoose from 'mongoose';
 import bodyParser from 'body-parser';
 import cookieParser from 'cookie-parser';
 import cors from 'cors';
+import { expressCspHeader, INLINE, NONE, SELF } from 'express-csp-header';
 import session from 'express-session';
 import connectMongo from 'connect-mongo';
 import passport from 'passport';
@@ -65,6 +66,17 @@ const corsMiddleware = cors({
 app.use(corsMiddleware);
 // Enable pre-flight OPTIONS route for all end-points
 app.options('*', corsMiddleware);
+
+app.use(expressCspHeader({
+  directives: {
+    // 'default-src': [SELF],
+    // 'script-src': [SELF],
+    // 'style-src': [SELF, 'mystyles.net'],
+    // 'img-src': ['data:', 'images.com'],
+    'worker-src': [SELF],
+    // 'block-all-mixed-content': true
+  }
+}));
 
 app.use(bodyParser.urlencoded({ limit: '50mb', extended: true }));
 app.use(bodyParser.json({ limit: '50mb' }));

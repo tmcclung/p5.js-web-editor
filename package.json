@@ -166,6 +166,7 @@
     "eslint-loader": "^2.2.1",
     "express": "^4.17.1",
     "express-basic-auth": "^1.2.0",
+    "express-csp-header": "^4.0.0",
     "express-session": "^1.17.0",
     "friendly-words": "^1.1.10",
     "htmlhint": "^0.10.1",
